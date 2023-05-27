@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "matrix"
+version = "0"
+description = "Matrix terminal screen"
+authors = ["Magnus Aa. Hirth <magnus.hirth@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
