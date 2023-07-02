@@ -61,7 +61,7 @@ class Column:
         c = self.chars[index]
         if index == self.end_offset:
             return f'{codes.FG_WHITE}{codes.BOLD}{c}{codes.RESET}{codes.FG_DEFAULT}'
-        if self.end_offset <= index <= self.end_offset - 2:
+        if self.end_offset - 2 <= index <= self.end_offset:
             return f'{codes.FG_WHITE}{c}{codes.FG_DEFAULT}'
         if self.offset <= index <= self.offset + 2:
             return f'{codes.FG_GREEN}{codes.DIM}{c}{codes.RESET}{codes.FG_DEFAULT}'
@@ -92,6 +92,8 @@ class Column:
 
 
 def update_columns(columns: list[Optional[Column]]):
+	# Randomly add a new column. This seems to create a nice distribution
+	# similar to the original matrix, with minimal logic.
     idx = randint(0, len(columns) - 1)
     if columns[idx] is None:
         columns[idx] = Column(HEIGHT)
